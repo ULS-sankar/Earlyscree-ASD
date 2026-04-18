@@ -1,0 +1,28 @@
+{
+    "file_path": "D:/test folder/test 2.mp4",
+    "file_type": "video",
+    "dominant_behavior": "Headbanging",
+    "dominant_behavior_label": "Head Banging",
+    "model_confidence": 0.9567035436630249,
+    "clip_vote_score": 100.0,
+    "is_conclusive": true,
+    "margin": 100.0,
+    "runner_up_behavior": "Spinning",
+    "runner_up_behavior_label": "Body Spinning",
+    "runner_up_score": 0.0,
+    "behavior_percentages": {
+        "Armflapping": 0.0,
+        "Headbanging": 100.0,
+        "Spinning": 0.0,
+        "_margin": 100.0,
+        "_conclusive": 1.0,
+        "_runner_up_cls": 2.0,
+        "_runner_up": 0.0
+    },
+    "total_frames_analyzed": 285,
+    "detected_frames_count": 20,
+    "clinical_verdict": "HIGH PROBABILITY OF MSB",
+    "clinical_verdict_color": "#DC2626",
+    "traits_found_summary": "Head Banging (100.0%)",
+    "full_report_text": "EARLY SCREEN ASD -- MSB ANALYSIS REPORT\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\nSTATUS    : HIGH PROBABILITY OF MSB\nVERDICT   : CONCLUSIVE\nMARGIN    : 100.0% (winner vs runner-up)\n\nDOMINANT BEHAVIOR DETECTED:\n  >> Head Banging\n     Clip Vote Score  : 100.0%\n     Model Confidence : 95.7%\n     Runner-up        : Body Spinning (0.0%)\n\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nFrames analyzed : 285\nCaptured frames : 20\n\nNote: Always consult a qualified clinical\nspecialist for diagnosis."
+}

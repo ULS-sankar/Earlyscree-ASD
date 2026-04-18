@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Early Screen ASD - TV Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Home Screen -->
+    <div id="home-screen" class="screen active">
+        <div class="container">
+            <div class="logo-section">
+                <img src="../LOGO.png" alt="Early Screen ASD Logo" class="logo">
+                <h1 class="title">Early Screen ASD</h1>
+            </div>
+
+            <div class="button-grid">
+                <button class="nav-button" onclick="navigateTo('upload-screen')">
+                    <div class="button-icon">📹</div>
+                    <span class="button-text">Upload Video</span>
+                </button>
+
+                <button class="nav-button" onclick="navigateTo('reports-screen')">
+                    <div class="button-icon">📊</div>
+                    <span class="button-text">View Reports</span>
+                </button>
+
+                <button class="nav-button" onclick="navigateTo('learn-screen')">
+                    <div class="button-icon">ℹ️</div>
+                    <span class="button-text">Learn More</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Screen -->
+    <div id="upload-screen" class="screen">
+        <div class="container">
+            <div class="header">
+                <button class="back-button" onclick="navigateTo('home-screen')">← Back to Home</button>
+                <h2>Video Analysis</h2>
+            </div>
+
+            <div class="upload-section">
+                <div class="upload-area" id="drop-area">
+                    <div class="upload-content">
+                        <div class="upload-icon">📁</div>
+                        <h3>Upload Video for Analysis</h3>
+                        <p>Drag and drop your video file here or click to browse</p>
+                        <input type="file" id="file-input" accept="video/*" style="display: none;">
+                        <button class="browse-btn" onclick="document.getElementById('file-input').click()">Browse
+                            Files</button>
+                    </div>
+                </div>
+
+                <div class="analysis-controls">
+                    <button class="action-button" id="analyze-btn" disabled>Start Analysis</button>
+                    <button class="action-button secondary" id="cancel-btn" disabled>Cancel</button>
+                </div>
+            </div>
+
+            <div class="progress-section" id="progress-section" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <p class="progress-text" id="progress-text">Preparing analysis...</p>
+            </div>
+
+            <div class="results-section" id="results-section" style="display: none;">
+                <div class="results-header">
+                    <h3>Analysis Results</h3>
+                    <span class="timestamp" id="analysis-timestamp"></span>
+                </div>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-icon">🎯</div>
+                        <div class="result-content">
+                            <h4>Overall Assessment</h4>
+                            <p class="result-value" id="overall-assessment">-</p>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-icon">📊</div>
+                        <div class="result-content">
+                            <h4>Confidence Score</h4>
+                            <p class="result-value" id="confidence-score">-</p>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-icon">⏱️</div>
+                        <div class="result-content">
+                            <h4>Analysis Time</h4>
+                            <p class="result-value" id="analysis-time">-</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detailed-results">
+                    <h4>Detailed Analysis</h4>
+                    <div class="behaviors-grid" id="behaviors-grid">
+                        <!-- Behavior cards will be populated here -->
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button class="action-button" onclick="saveReport()">Save Report</button>
+                    <button class="action-button secondary" onclick="navigateTo('reports-screen')">View All
+                        Reports</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reports Screen -->
+    <div id="reports-screen" class="screen">
+        <div class="container">
+            <div class="header">
+                <button class="back-button" onclick="navigateTo('home-screen')">← Back to Home</button>
+                <h2>Video Analysis History</h2>
+            </div>
+
+            <div class="search-section">
+                <input type="text" id="search-input" placeholder="Search reports by date or filename...">
+                <button class="search-btn">Search</button>
+            </div>
+
+            <div class="reports-list" id="reports-list">
+                <!-- Reports will be populated here -->
+                <div class="no-reports">
+                    <div class="no-reports-icon">📋</div>
+                    <p>No analysis reports yet. Upload a video to get started.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Learn More Screen -->
+    <div id="learn-screen" class="screen">
+        <div class="container">
+            <div class="header">
+                <button class="back-button" onclick="navigateTo('home-screen')">← Back to Home</button>
+                <h2>Learn More</h2>
+            </div>
+
+            <div class="content-section">
+                <div class="disclaimer-box">
+                    <h3>⚠️ Important Disclaimer</h3>
+                    <p>
+                        Early Screen ASD is an <strong>assistive tool</strong> designed to help identify potential signs
+                        of autism spectrum disorder
+                        in children through video analysis. This tool is <strong>NOT</strong> a diagnostic tool and
+                        should not be used as a substitute
+                        for professional medical evaluation.
+                    </p>
+                    <p>
+                        <strong>Important:</strong> Always consult with qualified healthcare professionals for accurate
+                        diagnosis and treatment recommendations.
+                    </p>
+                </div>
+
+                <div class="info-section">
+                    <h3>What is Early Screen ASD?</h3>
+                    <p>
+                        Early Screen ASD uses advanced machine learning algorithms to analyze video footage of
+                        children's behavior
+                        and identify patterns that may be associated with autism spectrum disorder. The system is
+                        designed to assist
+                        healthcare professionals and caregivers in the early identification process.
+                    </p>
+                </div>
+
+                <div class="info-section">
+                    <h3>How It Works</h3>
+                    <ol>
+                        <li><strong>Upload:</strong> Submit a video of the child's natural behavior</li>
+                        <li><strong>Analysis:</strong> Our AI system processes the video frame by frame</li>
+                        <li><strong>Detection:</strong> The system identifies behavioral patterns and movements</li>
+                        <li><strong>Report:</strong> Generate a detailed analysis report for professional review</li>
+                    </ol>
+                </div>
+
+                <div class="info-section">
+                    <h3>What We Analyze</h3>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">✋</div>
+                            <h4>Hand Movements</h4>
+                            <p>Repetitive hand flapping, finger movements, and unusual hand positioning</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔄</div>
+                            <h4>Body Movements</h4>
+                            <p>Spinning, rocking, and other repetitive body movements</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">👀</div>
+                            <h4>Eye Contact</h4>
+                            <p>Patterns of gaze and eye contact behavior</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🗣️</div>
+                            <h4>Vocal Patterns</h4>
+                            <p>Speech patterns and vocalizations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3>Benefits of Early Detection</h3>
+                    <p>
+                        Early identification of autism spectrum disorder can lead to:
+                    </p>
+                    <ul>
+                        <li>Earlier access to intervention services</li>
+                        <li>Improved long-term outcomes</li>
+                        <li>Better support for families and caregivers</li>
+                        <li>More effective educational planning</li>
+                    </ul>
+                </div>
+
+                <div class="info-section">
+                    <h3>Privacy & Security</h3>
+                    <p>
+                        We take your privacy seriously. All video uploads are:
+                    </p>
+                    <ul>
+                        <li>Encrypted during transmission and storage</li>
+                        <li>Processed locally when possible</li>
+                        <li>Automatically deleted after analysis</li>
+                        <li>Never shared without explicit consent</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

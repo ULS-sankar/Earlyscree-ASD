@@ -1,0 +1,13 @@
+.venv/
+venv/
+bin/
+__pycache__/
+extractor_models/
+models/
+model_zoo/
+videos/
+data/
+*.npz
+*.mp4
+*.pth
+.idea/

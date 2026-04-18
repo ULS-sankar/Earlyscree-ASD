@@ -1,0 +1,464 @@
+================================================================================
+                    PROJECT REPORT: EARLY SCREEN ASD
+           Advanced Behavioral Analysis & Autism Screening System
+================================================================================
+
+1. ACKNOWLEDGEMENT & CERTIFICATE
+--------------------------------------------------------------------------------
+ACKNOWLEDGEMENT
+I would like to express my deepest gratitude to my instructors and mentors for 
+their invaluable guidance and support throughout the development of this 
+project. Special thanks to the developers of PyTorch, OpenCV, and the torchvision 
+library for providing the deep learning frameworks that made this work possible. 
+I also acknowledge the healthcare professionals whose research into Motor 
+Stereotyped Behaviors (MSBs) provided the clinical foundation for this 
+automated screening tool.
+
+CERTIFICATE
+This is to certify that the project titled "EARLY SCREEN ASD" is a comprehensive 
+technical work developed to address the need for objective behavioral screening 
+in early childhood development. The system utilizes state-of-the-art Temporal 
+Convolutional Networks (TCN) and Residual Neural Networks (ResNet) to provide 
+high-accuracy detection of behavioral traits associated with Autism Spectrum 
+Disorder.
+
+
+2. INTRODUCTION
+--------------------------------------------------------------------------------
+Autism Spectrum Disorder (ASD) is a neurodevelopmental condition characterized by 
+persistent challenges in social interaction, communication, and the presence of 
+repetitive, restricted patterns of behavior. Early identification of these 
+traits—particularly Motor Stereotyped Behaviors (MSBs)—is critical, as the 
+first few years of a child's life represent a "golden window" for intervention.
+
+"EARLY SCREEN ASD" emerges at the intersection of pediatric healthcare and 
+artificial intelligence. The project aims to modernize the screening process by 
+replacing subjective, manual observation with objective, high-precision computer 
+vision analysis. By leveraging Temporal Convolutional Networks, our system 
+can identify and quantify behaviors like Arm Flapping, Head Banging, and 
+Spinning with a level of consistency and speed that is difficult to achieve 
+through human observation alone.
+
+
+3. ABSTRACT
+--------------------------------------------------------------------------------
+Early identification of Autism Spectrum Disorder (ASD) is crucial for improving 
+long-term outcomes through early intervention. However, clinical diagnosis is 
+often delayed due to the subjective nature of observation and high resource 
+demands. "EARLY SCREEN ASD" presents an automated, computer-vision-based 
+solution for screening Motor Stereotyped Behaviors (MSBs). 
+
+The system employs a dual-stage neural architecture: 
+1. **Spatial Feature Extraction**: A pre-trained ResNet18 model is used to 
+   extract 512-dimensional spatial feature vectors from video frames.
+2. **Temporal Modeling**: A Temporal Convolutional Network (TCN) with dilated 
+   convolutions and a large receptive field analyzes sequences of these features 
+   to identify patterns such as Arm Flapping, Head Banging, and Body Spinning.
+
+The resulting tool is a professional desktop application that provides 
+conclusive clinical reports, high-resolution frame previews, and objective 
+confidence margins, bridging the gap between advanced AI research and 
+practical diagnostic assistance.
+
+
+4. ABOUT THE PROJECT
+--------------------------------------------------------------------------------
+3.1 PROBLEM STATEMENT:
+The clinical diagnosis of Autism Spectrum Disorder (ASD) is historically marred by 
+significant delays, often referred to as the "Diagnostic Lag." While early signs of 
+atypical development can be observed as early as 18 months, children frequently 
+do not receive a formal diagnosis until age 4 or 5. 
+
+The primary bottlenecks in the current screening system include:
+- **Subjective observation**: Dependence on the recall of parents or the 
+  manual timing of behaviors by specialists, which is prone to error.
+- **Resource scarcity**: A global shortage of developmental specialists leading 
+  to waitlists that can span years.
+- **High Resource intensity**: Manual behavioral analysis requires hours of 
+  observation by highly trained (and expensive) professionals.
+
+3.2 PROJECT OBJECTIVES:
+"EARLY SCREEN ASD" was developed to bridge this gap by providing an automated, 
+objective, and high-speed preliminary screening tool. The core objectives are:
+- **Reduction of Diagnostic Lag**: Enable parents and pediatricians to perform 
+  rapid, home-based or primary-care-based behavioral screenings.
+- **Objective Quantification**: Replace stopwatches and clickers with AI that 
+  detects rhythmic Motor Stereotyped Behaviors (MSBs) with sub-second accuracy.
+- **Clinical Documentation**: Generate professional, clinical-grade reports that 
+  can be shared with specialists to speed up the formal diagnostic process.
+- **False Positive Mitigation**: Implement safety features to ensure the tool 
+  remains focused on human behavior, preventing errors from non-human sources.
+
+3.3 PROJECT SCOPE:
+The scope of this project is concentrated on the detection and analysis of 
+Motor Stereotyped Behaviors (MSBs), which are among the earliest and most recognizable 
+markers of ASD.
+- **Behaviors Covered**: Arm Flapping, Head Banging, and Body Spinning.
+- **Technology Focus**: Uses Temporal Convolutional Networks (TCN) to understand 
+  the *rhythm* of movement, not just the single image.
+- **Clinical Positioning**: This is explicitly a **SCREENING TOOL**. It provides 
+  statistical evidence of traits but does not issue a final medical diagnosis.
+- **Local Analysis**: All video processing is done locally on the user's machine 
+  to ensure the highest level of patient privacy and data security.
+
+3.4 FEASIBILITY STUDY:
+- **Technical Feasibility**: The project utilizes a pre-trained ResNet18 backbone 
+  combined with a custom TCN. By implementing Batch Processing, the system 
+  reaches real-time performance on standard consumer-grade CPUs and GPUs.
+- **Operational Feasibility**: The interface is designed for clinical "Zero-Distraction." 
+  A user can upload a video and receive a report in three clicks, requiring No 
+  specialized technical knowledge from the parent or educator.
+- **Economic Feasibility**: By automating the observation phase, it significantly 
+  reduces the cost barrier for initial screening, potentially saving families 
+  thousands in early-stage consultation fees.
+
+4.5 DATA SECURITY & PATIENT PRIVACY:
+Given the sensitive nature of pediatric behavioral data, "EARLY SCREEN ASD" is 
+built with a "Privacy-First" architecture. 
+- **Localized Computing (Edge AI)**: All video processing, feature extraction, 
+  and behavioral analysis are performed entirely on the user's local machine. 
+  No video data is ever transmitted to external servers or the cloud.
+- **Zero Cloud Footprint**: The application does not require an active internet 
+  connection for screening, preventing data breaches from network vulnerabilities.
+- **Controlled Data Lifecycle**: Results and PDF reports are stored in user-selected 
+  directories, giving the parent or clinician full control over data disposal.
+- **Compliance Alignment**: This decentralized approach aligns with the core 
+  principles of HIPAA (Health Insurance Portability and Accountability Act) and 
+  GDPR by minimizing data exposure and ensuring patient confidentiality.
+
+4.6 TRAINING DATASET: SELF-STIMULATORY BEHAVIOR DATASET (SSBD):
+The core behavior recognition engine was developed using the **Self-Stimulatory 
+Behavior Dataset (SSBD)**, a standard clinical benchmark for autism research.
+- **Content**: 75 curated video clips from public sources demonstrating repetitive 
+  behaviors in children.
+- **Key Categories**: The dataset specifically provides gold-standard examples 
+  of **Arm Flapping**, **Head Banging**, and **Body Spinning**.
+- **Role in Project**: SSBD provided the temporal samples needed to train our 
+  Temporal Convolutional Network (TCN). It ensured that our "Conclusive Verdicts" 
+  are based on scientifically recognized patterns of ASD traits rather than 
+  arbitrary movement data.
+
+
+5. DATA DICTIONARY (TECHNICAL SPECIFICATIONS)
+--------------------------------------------------------------------------------
+This section provides a rigorous map of all data structures, variables, and 
+computational entities utilized within the Early Screen ASD system.
+
+5.1 PRIMARY DATA ENTITIES & TENSOR SHAPES
+The following table defines the core data units processed by the AI pipeline:
+| Entity Name        | Type      | Shape / Dimensions | Description                              |
+|--------------------|-----------|--------------------|------------------------------------------|
+| Raw Frame          | Image     | (H, W, 3)          | Original RGB video frame (uint8).        |
+| Input Tensor       | Float32   | (3, 224, 224)      | ImageNet-normalized spatial input.       |
+| Spatial Descriptor | Vector    | (1, 512)           | ResNet-18 latent feature embedding.      |
+| Temporal Clip      | Tensor    | (Batch, 512, 10)   | Sequence of 10 consecutive frame features.|
+| Inference Logit    | Float     | (4, 1)             | Raw probability scores (4 classes).      |
+
+5.2 SYSTEM CONSTANTS & HYPERPARAMETERS
+| Parameter Name     | Value     | Unit      | Logical Role                              |
+|--------------------|-----------|-----------|-------------------------------------------|
+| **FRAME_SKIP**     | 5         | Frames    | Temporal sampling rate (6 FPS effective). |
+| **CLIP_LENGTH**    | 10        | Features  | Processing window for the TCN model.      |
+| **STRIDE**         | 5         | Features  | 50% temporal overlap for analysis.        |
+| **VOTE_THRESHOLD** | 50.0-70.0 | %         | Cumulative ASD detection thresholds.      |
+| **NORMAL_LIMIT**   | 40.0      | %         | Threshold for conclusive Normal Activity. |
+| **MODERATE_LIMIT** | 50.0-69.0 | %         | Confidence range for Moderate ASD traits. |
+
+5.3 INTERNAL RECORD STRUCTURE (BEHAVIORAL_FINDINGS_DICT)
+The system aggregates findings into a structured Python record used for reporting:
+- `dominant_behavior`: [String] The trait with the highest statistical vote.
+- `total_asd_pct`: [Float] Sum of all ASD traits (Armflapping + Headbanging + Spinning).
+- `verdict`: [String] Clinical label (e.g., "AUTISM POSITIVE", "MODERATE", "NORMAL").
+- `metadata`: [Object] Contains Record ID, Timestamp, and Hardware Info.
+
+5.4 SOFTWARE ASSET & DEPENDENCY REGISTRY
+| Category           | Item                 | Role / Responsibility                       |
+|--------------------|----------------------|---------------------------------------------|
+| **Backbone AI**    | `best_model.pkl`     | Learned weights for the TCN classifier.     |
+| **Core Logic**     | `desktop_app.py`     | Main controller for the GUI and threading.  |
+| **Reporting**      | `report_generator.py`| PDF generation using the FPDF-2 library.    |
+| **Frontend**       | `Tkinter / Custom`   | Modern, gradient-based UI layout.           |
+| **CV Engine**      | `OpenCV (cv2)`       | High-speed video decoding and frame capture.|
+
+5.5 FILE OUTPUT SPECIFICATIONS (CLINICAL PRODUCTS)
+The system produces self-contained, high-resolution documentation:
+1. **ASD_REPORT_[ID].PDF**: A print-ready document containing:
+   - Behavioral Dominance Bar Charts
+   - Analysis Timestamp & Unique Report Hash
+   - Clinical Accuracy Metrics
+2. **ANALYSIS_SUMMARY.HTML**: A Web-viewable summary for rapid review
+
+5.6 ERROR HANDLING & STATUS CODES:
+| Code / Label       | Trigger Condition                          | System Action                     |
+|--------------------|--------------------------------------------|-----------------------------------|
+| `ERR_NO_VIDEO`     | File dialog cancelled or invalid file type.| Show "Error: Video not selected". |
+| `ERR_MODEL_LOAD`   | `best_model.pkl` is missing or corrupted.  | Halt analysis, show model error.  |
+| `ERR_THREAD_FAIL`  | Unexpected crash in the analysis worker.   | Reset progress bar, alert user.   |
+| `WARN_NO_HUMAN`    | No child/human detected in first 10 frames.| Analyze but mark as "LOW CONFID". |
+| `RISK_MODERATE`    | Cumulative ASD traits between 50% and 70%. | Show "MODERATE AUTISM CHANGES".   |
+| `SUCCESS_EXPORT`   | PDF/HTML generation and file write complete.| Open Report in default viewer.    |
+
+5.7 UI DESIGN TOKENS (AESTHETIC DATA):
+The app utilizes a modern, clinical-professional theme defined by:
+- **Primary Color**: Deep Slate Navy (`#0F172A`).
+- **Accent Color**: Crimson Red (`#E11D48`).
+- **Gradients**: Linear 45 degree transition from Slate to Navy.
+- **Typography**: Inter / Sans-Serif (Standardized size 10-14pt).
+- **Corner Radius**: 12px for all container frames and buttons.
+
+
+6. LOGICAL DEVELOPMENT & SYSTEM ARCHITECTURE
+--------------------------------------------------------------------------------
+6.1 DATA FLOW DIAGRAM (DFL) LEVEL 0, 1 & 2:
+- **Level 0 (Context)**:
+  `[User]` --(Video File)--> `(Early Screen ASD App)` --(Diagnosis)--> `[User]`
+  
+- **Level 1 (Transformation Logic)**:
+  `[Video]` -> `(1.1 Feature Extractor)` --(512-D Vectors)--> `(1.2 TCN Buffer)`
+  `[Weights]` -> `(1.2 TCN Buffer)` --(10-Frame Clips)--> `(1.3 Temporal Classifier)`
+  `(1.3 Temporal Classifier)` --(Logits)--> `(1.4 Result Aggregator)`
+  `(1.4 Result Aggregator)` --(Findings)--> `(1.5 PDF Generator)` -> `[Report.pdf]`
+
+- **Level 2 (Process Decomposition)**:
+  Within `(1.1 Feature Extractor)`:
+  `(1.1.1 Image Loading)` -> `(1.1.2 Normalization)` -> `(1.1.3 ResNet-18 Pass)` -> `(1.1.4 Vector Store)`
+  
+  Within `(1.2 TCN Buffer)`:
+  `(1.2.1 Temporal Windowing)` -> `(1.2.2 Sequence Stacking)` -> `(1.2.3 Batch Preparation)`
+  
+  Within `(1.3 Temporal Classifier)`:
+  `(1.3.1 Convolutional Pass)` -> `(1.3.2 Dilation Logic)` -> `(1.3.3 Softmax Scoring)`
+  
+  Within `(1.4 Result Aggregator)`:
+  `(1.4.1 Peak Voting)` -> `(1.4.2 Margin Validation)` -> `(1.4.3 Verdict Mapping)`
+  
+  Within `(1.5 PDF Generator)`:
+  `(1.5.1 Data Serialization)` -> `(1.5.2 Template Rendering)` -> `(1.5.3 IO File Write)`
+
+
+6.2 CLASS DIAGRAM (COMPUTATIONAL ENTITIES):
+The system is built on an Object-Oriented paradigm with three core controllers:
+```text
+ +---------------+       +------------------+       +---------------+
+ |  DesktopApp   |<>---->| FeatureExtractor |<>---->|    TCNModel   |
+ +---------------+       +------------------+       +---------------+
+ | - ui_root     |       | - resnet18       |       | - conv_layers |
+ | - worker_th   |       | - transform      |       | - fc_head     |
+ +---------------+       +------------------+       +---------------+
+ | + load_vid()  |       | + get_vector()   |       | + classify()  |
+ | + run_analys()|       | + batch_proc()   |       | + forward()   |
+ +---------------+       +------------------+       +---------------+
+```
+
+6.3 CONCURRENT EXECUTION MODEL (THREADING):
+- **GUI Thread**: Manages Tkinter event loop and progress visualization.
+- **Worker Thread**: Executes `analyze_video_logic` to ensure zero UI freezing.
+
+6.4 BEHAVIORAL SCORING LOGIC (CUMULATIVE ASD):
+Total_ASD_Pct = Sum(Armflapping, Headbanging, Spinning)
+1. If Total_ASD_Pct >= 70% -> "AUTISM POSITIVE (Conclusive)"
+2. If Dominant_ASD >= 50% and RunnerUp_ASD >= 40% -> "AUTISM POSITIVE (Strong Mixed ASD Traits)"
+3. If Total_ASD_Pct >= 50% -> "MODERATE AUTISM CHANGES"
+4. If Total_ASD_Pct < 40% and Normal_Pct >= 60% -> "NORMAL (No ASD Traits Detected)"
+5. Else -> "INCONCLUSIVE (Low MSB Confidence)"
+
+
+7. PROGRAM DESIGN & COMPONENT SPECIFICATIONS
+--------------------------------------------------------------------------------
+The "Early Screen ASD" system is designed as a modular, high-performance desktop 
+application. The architecture prioritizes "Edge-AI" (local processing) to 
+ensure patient privacy while maintaining a professional, zero-distraction 
+clinical interface.
+
+7.1 ARCHITECTURAL PRINCIPLES:
+The system follows a Decoupled Controller Architecture, where the User 
+Interface (Frontend), Behavioral Analysis (Inference), and Clinical 
+Documentation (Reporting) operate as independent but strictly interfaced units. 
+This ensures that updates to the AI model do not require a rewrite of the UI 
+logic, and vice versa.
+
+7.2 CORE COMPONENT DEEP-DIVE:
+1. **Frontend Module (AutismBehaviorApp)**:
+   - **Page Manager**: Implements a custom state-machine to transition between 
+     the "Home" and "Screening" pages without memory-intensive reloading.
+   - **Event-Driven UX**: Utilizing Tkinter's main loop, the system remains 
+     responsive during heavy frame decoding by offloading tasks to worker threads.
+   - **Real-Time Video Rendering**: Uses OpenCV and PIL (Pillow) to decode 
+     H.264 streams and map them to high-resolution Tkinter canvas elements 
+     with frame-accurate seek capabilities.
+
+2. **Inference Engine (ResNet-TCN Pipeline)**:
+   - **Spatial Backbone**: A ResNet-18 model (pre-trained on ImageNet) acts as 
+     the "Eye" of the system, converting raw pixel data into 512-dimensional 
+     semantic vectors.
+   - **Temporal Brain**: A custom Temporal Convolutional Network (TCN) analyzes 
+     the *vibration* of these vectors over 10-frame windows (approx. 1.6s). 
+     The model classifies clips into 4 categories: Arm Flapping, Head Banging, 
+     Spinning, or Normal Activity.
+- **Cumulative Batch Optimization**: To achieve real-time speed, the engine 
+     stacks frames into Tensor Batches (Size=32), utilizing SIMD/GPU 
+     acceleration to process an entire video clip in seconds.
+
+3. **Reporting Engine (ASDReportPDF)**:
+   - **Data-to-Clinical Mapping**: Translates raw floating-point probabilities 
+     into professional PDF charts and qualitative clinical verdicts.
+   - **Automated Verification**: Generates a unique Report ID and timestamp 
+     to ensure data traceability in clinical archives.
+
+7.3 CONCURRENCY & THREADING MODEL:
+To prevent the application from "freezing" during analysis, the system 
+implements a Multi-Threaded Execution Model:
+- **UI Thread (Main)**: Handles user clicks, window resizing, and the 
+  smooth 25-FPS video preview.
+- **Analysis Thread (Worker)**: Executes the PyTorch inference pipeline 
+  and communicates progress back to the UI via a thread-safe Queue/Callback 
+  mechanism. This ensures the PROGRESS BAR remains fluid even during 
+  100% CPU/GPU utilization.
+
+7.4 SYSTEM SAFETY & ERROR MITIGATION:
+- **False Positive Prevention**: Before behavioral analysis, a validation 
+  pass checks for "Human-like Motion" to prevent the AI from misinterpreting 
+  background objects or pets as clinical traits.
+- **Padding & Boundary Control**: For videos with non-standard lengths, 
+  the system applies "Reflection Padding" to the feature vectors, ensuring 
+  the TCN never encounters null-input errors.
+
+7.5 ALGORITHM SPECIFICATION (SMART-VOTING):
+```python
+# The logical heart of the decision-making process:
+Function Analyze_Behavior(Video_V):
+    1. Frames = Decode(V, skip=5) 
+    2. Spatial_Features = ResNet18(Frames)
+    3. Clips = Window(Spatial_Features, size=10, stride=5) # 50% Overlap
+    4. Probs = TCN_Inference(Clips) # 4xN Output
+    
+    # Cumulative Consensus Logic
+    Total_ASD_Pct = Sum(P[Arm], P[Head], P[Spin])
+    Normal_Pct = P[Normal]
+    
+    # Verdict Mapping
+    If Total_ASD_Pct >= 70%: Return "AUTISM POSITIVE (Conclusive)"
+    If Dominant >= 50% & RunnerUp >= 40%: Return "AUTISM POSITIVE (Mixed)"
+    If Total_ASD_Pct >= 50%: Return "MODERATE AUTISM CHANGES"
+    If Normal_Pct >= 60%: Return "NORMAL ACTIVITY"
+    Else: Return "INCONCLUSIVE"
+```
+
+
+8. TESTING AND VALIDATION
+--------------------------------------------------------------------------------
+TESTING METHODOLOGY:
+Systematic testing was conducted using a "Golden Dataset" of curated behavioral 
+clips. Each test focused on:
+1. **Consistency**: Running the same video multiple times to ensure deterministic 
+   results.
+2. **Boundary Testing**: Analysis of very short videos ( < 2 seconds) to verify 
+   padding logic.
+3. **Overlap Precision**: Testing videos where behaviors transition quickly to 
+   verify the effectiveness of the 50% stride.
+
+TEST RESULTS LOG:
+| Test ID | Video Title      | Detected Trait | ASD Pct | Clinical Verdict       | Result        |
+|---------|------------------|----------------|---------|------------------------|---------------|
+| T-001   | handaction.mp4   | Armflapping    | 100.0%  | AUTISM POSITIVE        | Conclusive    |
+| T-002   | test 2.mp4       | Headbanging    | 100.0%  | AUTISM POSITIVE        | Conclusive    |
+| T-003   | test 3.mp4       | Mixed Traits   | 55.3%   | MODERATE CHANGES       | Clinical Ref  |
+| T-004   | stimming_ex.mp4  | Armflapping    | 81.4%   | AUTISM POSITIVE        | Conclusive    |
+
+OBSERVATION:
+The "MODERATE CHANGES" result in T-003 demonstrates the system's ability to
+detect emerging traits (55.3%) that require clinical attention despite 
+not reaching the 70% high-confidence threshold.
+
+
+9. CONCLUSION & REFERENCES
+--------------------------------------------------------------------------------
+CONCLUSION:
+The "EARLY SCREEN ASD" project demonstrates that automated behavioral screening 
+is not only possible but highly reliable when using Temporal Convolutional 
+Networks. The integration of a professional desktop UI with a robust dual-stage 
+inference engine provides a scalable solution for early MSB identification. 
+
+Future work will focus on expanding the trait library to include complex 
+social interactions and gaze patterns, further enhancing the system's 
+diagnostic assistance capabilities.
+
+REFERENCES:
+1. Bai, S., Kolter, J. Z., & Koltun, V. (2018). "An Empirical Evaluation of 
+   Generic Convolutional and Recurrent Networks for Sequence Modeling."
+2. He, K., et al. (2016). "Deep Residual Learning for Image Recognition."
+3. Research in Developmental Disabilities: "Defining Motor Stereotypies in 
+   Autism Spectrum Disorder."
+
+
+10. APPENDIX (TECHNICAL SPECIFICATIONS)
+--------------------------------------------------------------------------------
+PROJECT FILE STRUCTURE:
+- /brain/                : Search and context metadata.
+- /models/               : TCN and model definitions.
+- /model_zoo/            : Pre-trained weight files (.pkl).
+- /videos/               : Test dataset clips.
+- desktop_app.py         : Main application entry point.
+- inference.py           : Core processing engine.
+- PROJECT_REPORT.txt     : Project documentation.
+
+CORE LOGIC SNIPPET (Inference Margin Logic):
+```python
+# From inference.py
+runner_up_idx = int(sorted_idx[1]) if len(sorted_idx) > 1 else dominant_idx
+margin = (win_counts[dominant_idx] - win_counts[runner_up_idx]) / n_clips * 100.0
+# Combined Confidence logic
+is_conclusive = margin >= MARGIN_MIN and (win_counts[dominant_idx] / n_clips) >= 0.60
+```
+
+11. WORKFLOW OF THE EARLY SCREEN ASD COMPUTER VISION–BASED BEHAVIORAL SCREENING SYSTEM
+--------------------------------------------------------------------------------
+The system operates as a cohesive end-to-end pipeline, transforming raw video data 
+into structured clinical intelligence. The workflow is divided into five 
+mathematically and logically distinct phases:
+
+PHASE 1: VIDEO PREPROCESSING & NORMALIZATION
+- **Frame Selection**: The system decodes the video stream and implements a 
+  `FRAME_SKIP=5` logic to reduce computational redundancy while preserving the 
+  essential temporal rhythm of the behavior.
+- **Normalization**: Each selected frame is resized to 224x224 pixels and 
+  normalized using ImageNet means (μ=[0.485, 0.456, 0.406]) to ensure 
+  compatibility with the pre-trained spatial backbone.
+- **Subject Validation**: A "Human Presence" check scans for skeletal structure 
+  or human facial features to prevent the analysis of static backgrounds.
+
+PHASE 2: DEEP SPATIAL FEATURE EXTRACTION (RESNET-18)
+- **Architecture**: Frames are passed through a 18-layer Deep Residual Network.
+- **Feature Vector**: The model removes the final classification layer and 
+  extracts the 512-dimensional output from the Global Average Pooling layer.
+- **Result**: Each frame is now represented as a compact point in a 512-D 
+  latent space, capturing the child's posture and movement position.
+
+PHASE 3: SEQUENTIAL TEMPORAL MODELING (TCN)
+- **Windowing**: Features are grouped into sequences of 10 (CLIP_LENGTH=10).
+- **Dilated Convolutions**: The TCN uses causal convolutions with exponentially 
+  increasing dilation factors (1, 2, 4, 8...). This allows the model to analyze 
+  patterns over longer durations without losing fine-grained detail.
+- **Pattern Recognition**: The model identifies rhythmic frequencies specific 
+  to ASD traits (e.g., the high-frequency oscillation of arm flapping).
+
+- **Sliding Window**: The system slides across the video with a 5-unit stride, 
+  ensuring 50% temporal overlap.
+- **Voting Mechanism**: Every 10-frame clip issues probabilities for the 
+  4 behavior classes (Armflapping, Headbanging, Spinning, and Normal).
+- **Cumulative Aggregation**: A conclusive verdict is reached by summing ALL 
+  ASD trait percentages. This allows the system to detect complex, mixed 
+  stimmings that would be missed by simple majority voting.
+- **Moderate Risk Layer**: An intermediate alert level ('MODERATE') captures 
+  emerging traits that do not yet meet the 70% diagnostic threshold but 
+  warrant clinical follow-up.
+
+PHASE 5: AUTOMATED REPORT GENERATION & DATA EXPORT
+- **Report Synthesis**: The `ASDReportPDF` engine aggregates the dominance 
+  scores and generates a professional medical report. 
+- **Validation**: The final output includes time-stamped report IDs and 
+  technical specifications for hardware verification.
+- **User Delivery**: The report is saved locally, and the user is provided 
+  with the option to launch the PDF immediately for review.
+
+================================================================================

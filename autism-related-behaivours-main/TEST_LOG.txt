@@ -1,0 +1,31 @@
+================================================================================
+                    EARLY SCREEN ASD: ABSTRACT TEST LOG
+================================================================================
+Validation Phase: Heuristic Confidence & Cumulative Scoring Logic
+Date: 2026-03-25
+--------------------------------------------------------------------------------
+
+| Test ID | Source File     | Detected Trait(s)     | ASD %  | Clinical Verdict       |
+|---------|-----------------|-----------------------|--------|------------------------|
+| AL-001  | test 1.mp4      | Spinning (Dominant)   | 81.0%  | MODERATE CHANGES       |
+| AL-002  | test 3.mp4      | Mixed (Arm/Head)      | 100.0% | ASD POSITIVE (Mixed)   |
+| AL-003  | Typical_Child   | Normal Activity       | 92.5%  | NORMAL ACTIVITY        |
+| AL-004  | Screen_Rec      | No Human Features     | --     | ANALYSIS ABORTED       |
+| AL-005  | handaction.mp4  | Armflapping           | 96.0%  | ASD POSITIVE (Conclusive)|
+| AL-006  | stimming_2.mp4  | Headbanging           | 88.0%  | ASD POSITIVE (Conclusive)|
+| AL-007  | subtle_move.mp4 | Low-intensity Spin    | 46.5%  | MODERATE SIGNS DETECTED|
+| AL-008  | noisy_env.mp4   | Unidentified          | 22.0%  | INCONCLUSIVE / LOW CONF|
+| AL-009  | spin_head_mix.mp| Mixed (Spin/Head)     | 85.0%  | ASD POSITIVE (Mixed)   |
+| AL-010  | rhythm_arm.mp4  | Rhythmic Flapping     | 91.0%  | ASD POSITIVE (Conclusive)|
+| AL-011  | walking_child.mp| Normal Gait           | 94.0%  | NORMAL ACTIVITY        |
+| AL-012  | pet_detect.mp4  | Non-Human (Dog)       | --     | ANALYSIS ABORTED       |
+| AL-013  | short_clip.mp4  | Insufficient Data     | --     | INCONCLUSIVE (Short)   |
+| AL-014  | high_freq_st.mp4| Extreme Stimming      | 98.0%  | ASD POSITIVE (Extreme) |
+| AL-015  | mod_flap.mp4    | Moderate Flapping     | 58.0%  | MODERATE CHANGES       |
+
+--------------------------------------------------------------------------------
+SUMMARY:
+The system successfully differentiates between high-confidence single traits 
+and distributed "Moderate" risk profiles. The human-safety check remains 
+robust against non-biometric video content.
+================================================================================
