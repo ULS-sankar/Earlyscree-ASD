@@ -80,25 +80,25 @@ Screening Results
 
 ## 🎥 Video Upload Interface
 
-![Upload Screen](screenshots/upload.png)
+![Upload Screen](autism-related-behaivours-main/screenshots/uploadinginterface .png)
 
 ---
 
 ## ⚙️ Analysis Processing
 
-![Processing Screen](screenshots/analysis.png)
+![Processing Screen](autism-related-behaivours-main/screenshots/analysing process.png)
 
 ---
 
 ## 📊 Results Dashboard
 
-![Results Screen](screenshots/results.png)
+![Results Screen](autism-related-behaivours-main/screenshots/result dashboard .png)
 
 ---
 
 ## 📄 Generated PDF Report
 
-![Report Screen](screenshots/report.png)
+![Report Screen](autism-related-behaivours-main/screenshots/generated result.png)
 
 ---
 
@@ -128,7 +128,7 @@ Screening Results
 
 # 🏛️ System Architecture
 
-![Architecture Diagram](screenshots/architecture.png)
+![Architecture Diagram]autism-related-behaivours-main/screenshots/architecture .png)
 
 ---
 
