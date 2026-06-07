@@ -74,7 +74,7 @@ Screening Results
 
 ## 🏠 Home Screen
 
-![Home Screen](screenshots/home.png)
+![Home Screen](autism-related-behaivours-main/screenshots/homescreen.png)
 
 ---
 
