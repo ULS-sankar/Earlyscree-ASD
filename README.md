@@ -80,25 +80,25 @@ Screening Results
 
 ## 🎥 Video Upload Interface
 
-![Upload Screen](autism-related-behaivours-main/screenshots/uploadinginterface .png)
+![Upload Screen](autism-related-behaivours-main/screenshots/uploadinginterface.png)
 
 ---
 
 ## ⚙️ Analysis Processing
 
-![Processing Screen](autism-related-behaivours-main/screenshots/analysing process.png)
+![Processing Screen](autism-related-behaivours-main/screenshots/analysingprocess.png)
 
 ---
 
 ## 📊 Results Dashboard
 
-![Results Screen](autism-related-behaivours-main/screenshots/result dashboard .png)
+![Results Screen](autism-related-behaivours-main/screenshots/resultdashboard.png)
 
 ---
 
 ## 📄 Generated PDF Report
 
-![Report Screen](autism-related-behaivours-main/screenshots/generated result.png)
+![Report Screen](autism-related-behaivours-main/screenshots/generatedresult.png)
 
 ---
 
