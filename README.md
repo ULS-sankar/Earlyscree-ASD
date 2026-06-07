@@ -6,7 +6,6 @@
 
 Detecting Autism-Related Behavioral Patterns using Computer Vision & Deep Learning
 
-<img src="screenshots/banner.png" width="100%">
 
 <br>
 
